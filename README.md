@@ -3,7 +3,10 @@ ImageOnHover
 
 ImageOnHover is jQuery plugin that help you to show image on hovering a link.
 It's just like fancybox or something like that, except you don't need to click.
-Be aware: example.html is NOT SAFE FOR WORK.
+
+Be aware: example.html is **NOT SAFE FOR WORK**.
+
+---
 
 ### Example:
 
@@ -23,15 +26,15 @@ $('a.class').imageOnHover();
 
 ###Options:
 
-zIndex - defines z-index of overlay with image. (Default: 1000)
+`zIndex` - defines z-index of overlay with image. (Default: 1000)
 
-maxWidth - defines maximum available width for overlay. (Default: "90%")
+`maxWidth` - defines maximum available width for overlay. (Default: "90%")
 
-maxHeight - maximum height of overlay. (Default: "90%")
+`maxHeight` - maximum height of overlay. (Default: "90%")
 
-childrenClass - defines class of children element. Position of start place for animation depends on it. If there's no element with this class in <a.class> then <a> became a thing. (Default: "hi182childContainer")
+`childrenClass` - defines class of children element. Position of start place for animation depends on it. If there's no element with this class in <a.class> then <a> became a thing. (Default: "hi182childContainer")
 
-animationTime - time of animation in ms (Default: 200)
+`animationTime` - time of animation in ms (Default: 200)
 
-maxOpacity - maximum opacity on the end of animation (Default: 1)
+`maxOpacity` - maximum opacity on the end of animation (Default: 1)
 
