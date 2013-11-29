@@ -15,6 +15,7 @@
 </div>
 
 <script>
+// New photo every hover event! Just for example. Also, NSFW!
 var photos = ['http://cs614722.vk.me/v614722726/1ffe/Lb1w7pqq_vo.jpg',
 'http://cs418927.vk.me/v418927412/9b86/5Rsr8K4nGLY.jpg',
 'http://cs310526.vk.me/v310526412/47d1/Lkm4wGfDuqA.jpg',
@@ -374,6 +375,7 @@ var photos = ['http://cs614722.vk.me/v614722726/1ffe/Lb1w7pqq_vo.jpg',
 'http://cs417619.vk.me/v417619597/33d1/0Lriy4kthy4.jpg'];
 $(document).ready(function(e) {
 	$('a.class').imageOnHover();
+	// Randomly changing href
 	$(document).on('mouseenter','.class',function() {
 		var href = photos[Math.floor(Math.random()*photos.length)];
 		$(this).attr('href',href);
