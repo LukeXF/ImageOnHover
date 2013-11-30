@@ -32,7 +32,7 @@ $('a.class').imageOnHover();
 
 `maxHeight` - maximum height of overlay. (Default: "90%")
 
-`childrenClass` - defines class of children element. Position of start place for animation depends on it. If there's no element with this class in <a.class> then <a > itself become a thing. (Default: "hi182childContainer")
+`childrenClass` - defines class of children element. Position of start place for animation depends on it. If there's no element with this class in `<a.class>` then `<a>` itself become a thing. (Default: "hi182childContainer")
 
 `animationTime` - time of animation in ms (Default: 200)
 
