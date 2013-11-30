@@ -36,5 +36,5 @@ $('a.class').imageOnHover();
 
 `animationTime` - time of animation in ms (Default: 200)
 
-`maxOpacity` - maximum opacity on the end of animation (Default: 1)
+`maxOpacity` - maximum opacity in the end of animation (Default: 1)
 
