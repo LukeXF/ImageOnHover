@@ -1,6 +1,7 @@
 // This script created by Equals182 (equals182.com)
 // Use it and improve it. Don't forget to pull your requests on https://github.com/Equals182/ImageOnHover
 // Please don't erase theese three lines. Thank you.
+// v1.1
 
 (function( $ ) {
 	$.fn.imageOnHover = function(options) {
@@ -11,19 +12,22 @@
 		  'maxWidth'	  : '90%',
 		  'maxHeight'	 : '90%',
 		  'childrenClass' : 'hi182childContainer',
-		  'animationTime' : 200,
+		  'timeZoomIn' 	: 200,
+		  'timeZoomOut'   : 100,
 		  'maxOpacity'	: 1
 		}, options);
 		var animationTime = settings.animationTime;
 		
-		$('body').prepend('<div id="hoverHolder182" style="position:fixed; z-index:'+settings.zIndex+';"></div>');
+		$('body').prepend('<div id="hoverHolder182" style="position:absolute; z-index:'+settings.zIndex+';"></div>');
 		imgHover182 = $('#hoverHolder182');
 		objects.addClass('hi182');
-		imgHover182canAnimate = 1;
+		imgHover182canOpen = 1;
+		imgHover182canClose = 0;
 		lastImgHovered = {};
 		
 		function goo(contLeft, contTop, contWidth, contHeight, imgRatio, imgWith, imgHeight, move) {
-			imgHover182canAnimate = 0;
+			imgHover182canOpen = 0;
+			imgHover182canClose = 0;
 			
 			lastImgHovered['contLeft']=contLeft;
 			lastImgHovered['contTop']=contTop;
@@ -82,23 +86,28 @@
 					maxHeight = imgHeight;
 					maxWidth = maxHeight * imgRatio;
 				}
-				var finalLeft = (windowWidth - maxWidth) / 2;
-				var finalTop = (windowHeight - maxHeight) / 2;
+				var finalLeft = (windowWidth - maxWidth) / 2 + $(window).scrollLeft();
+				var finalTop = (windowHeight - maxHeight) / 2 + $(window).scrollTop();
 				
 				imgHover182.css('display','block');
 				var opacity = settings.maxOpacity;
+				var time = settings.timeZoomIn;
 			}else if(move=='close') {
 				var maxHeight = h;
 				var maxWidth = w;
 				var finalLeft = l;
 				var finalTop = t;
 				var opacity = 0;
+				var time = settings.timeZoomOut;
 			}
 			
-			imgHover182.stop().animate({'height':maxHeight+"px", 'width':maxWidth+"px", 'left':finalLeft+'px', 'top':finalTop+'px', 'opacity':opacity},animationTime,function() {
+			imgHover182.stop().animate({'height':maxHeight+"px", 'width':maxWidth+"px", 'left':finalLeft+'px', 'top':finalTop+'px', 'opacity':opacity},time,function() {
 				imgHover182canAnimate = 1;
 				if(move=='close') {
 					imgHover182.css('display','none');
+					imgHover182canOpen = 1;
+				}else if(move=='open') {
+					imgHover182canClose = 1;
 				}
 			});
 		}
@@ -130,13 +139,13 @@
 		
 		$(document).off('mouseover','.hi182');
 		$(document).on('mouseover','.hi182',function() {
-			if(imgHover182canAnimate == 0) { return false; }
+			if(imgHover182canOpen == 0) { return false; }
 			var a = $(this);
 			goo1(a,'open');
 		});
 		
 		$(document).on('mousemove',function(e) {
-			if(imgHover182canAnimate == 0) { return false; }
+			if(imgHover182canClose == 0) { return false; }
 			
 			var contLeft = lastImgHovered['contLeft'];
 			var contTop = lastImgHovered['contTop'];
