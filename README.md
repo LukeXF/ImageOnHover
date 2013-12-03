@@ -34,7 +34,9 @@ $('a.class').imageOnHover();
 
 `childrenClass` - defines class of children element. Position of start place for animation depends on it. If there's no element with this class in `<a.class>` then `<a>` itself become a thing. (Default: "hi182childContainer")
 
-`animationTime` - time of animation in ms (Default: 200)
+`timeZoomIn` - time of zoom in animation in ms (Default: 200)
+
+`timeZoomOut` - time of zoom out animation in ms (Default: 100) (Use 0 for better perfomance and to avoid bugs)
 
 `maxOpacity` - maximum opacity in the end of animation (Default: 1)
 
