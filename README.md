@@ -4,6 +4,7 @@ ImageOnHover
 ImageOnHover is jQuery plugin that help you to show image on hovering a link.
 It's just like fancybox or something like that, except you don't need to click.
 
+### View a working example [over here](http://demo.luke.sx/ImageOnHover/).
 Be aware: example.html is **NOT SAFE FOR WORK**.
 
 ---
